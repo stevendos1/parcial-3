@@ -1,0 +1,12 @@
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\bin\Debug\net8.0\Hackathon.Shared.deps.json
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\bin\Debug\net8.0\Hackathon.Shared.dll
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\bin\Debug\net8.0\Hackathon.Shared.pdb
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.AssemblyInfoInputs.cache
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.AssemblyInfo.cs
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.csproj.CoreCompileInputs.cache
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.sourcelink.json
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.dll
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\refint\Hackathon.Shared.dll
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\Hackathon.Shared.pdb
+C:\Users\stevendos1\Desktop\hackaton-entrega-3\HackathonManagement\Hackathon.Shared\obj\Debug\net8.0\ref\Hackathon.Shared.dll
