@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los roles
             var roles = await _context.Roles.ToListAsync();
-            return Ok(roles);
+            return Ok(roles); // Retornar la lista de roles
         }
 
         // GET: api/role/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var role = await _context.Roles.FindAsync(id);
             if (role == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el rol
             }
-            return Ok(role);
+            return Ok(role); // Retornar el rol encontrado
         }
 
         // POST: api/role
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo rol
             _context.Roles.Add(role);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetRole), new { id = role.Id }, role);
+            return CreatedAtAction(nameof(GetRole), new { id = role.Id }, role); // Retornar 201 Created
         }
 
         // PUT: api/role/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un rol existente
             if (id != role.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(role).State = EntityState.Modified;
+            _context.Entry(role).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!RoleExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el rol no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/role/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var role = await _context.Roles.FindAsync(id);
             if (role == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el rol no se encuentra
             }
 
-            _context.Roles.Remove(role);
-            await _context.SaveChangesAsync();
+            _context.Roles.Remove(role); // Eliminar el rol
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool RoleExists(int id)
         {
-            return _context.Roles.Any(e => e.Id == id);
+            return _context.Roles.Any(e => e.Id == id); // Verificar si el rol existe
         }
     }
 }

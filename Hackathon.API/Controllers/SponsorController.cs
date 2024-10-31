@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los patrocinadores
             var sponsors = await _context.Sponsors.ToListAsync();
-            return Ok(sponsors);
+            return Ok(sponsors); // Retornar la lista de patrocinadores
         }
 
         // GET: api/sponsor/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var sponsor = await _context.Sponsors.FindAsync(id);
             if (sponsor == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el patrocinador
             }
-            return Ok(sponsor);
+            return Ok(sponsor); // Retornar el patrocinador encontrado
         }
 
         // POST: api/sponsor
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo patrocinador
             _context.Sponsors.Add(sponsor);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetSponsor), new { id = sponsor.Id }, sponsor);
+            return CreatedAtAction(nameof(GetSponsor), new { id = sponsor.Id }, sponsor); // Retornar 201 Created
         }
 
         // PUT: api/sponsor/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un patrocinador existente
             if (id != sponsor.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(sponsor).State = EntityState.Modified;
+            _context.Entry(sponsor).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!SponsorExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el patrocinador no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/sponsor/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var sponsor = await _context.Sponsors.FindAsync(id);
             if (sponsor == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el patrocinador no se encuentra
             }
 
-            _context.Sponsors.Remove(sponsor);
-            await _context.SaveChangesAsync();
+            _context.Sponsors.Remove(sponsor); // Eliminar el patrocinador
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool SponsorExists(int id)
         {
-            return _context.Sponsors.Any(e => e.Id == id);
+            return _context.Sponsors.Any(e => e.Id == id); // Verificar si el patrocinador existe
         }
     }
 }

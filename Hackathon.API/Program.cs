@@ -1,14 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Hackathon.Shared.Entities;
 using Hackathon.API.Data;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuración de servicios
-builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Registrar controladores
+builder.Services.AddControllers();
 
 // Configuración de Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -28,6 +30,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Aplicar políticas de CORS
@@ -40,10 +44,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hackathon API v1"));
 }
 
-// Llamar al método SeedData para poblar la base de datos
-SeedDb.SeedData(app);
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+// Mapear los controladores
 app.MapControllers();
+
 app.Run();

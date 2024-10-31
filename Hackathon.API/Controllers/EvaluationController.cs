@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todas las evaluaciones
             var evaluations = await _context.Evaluations.ToListAsync();
-            return Ok(evaluations);
+            return Ok(evaluations); // Retornar la lista de evaluaciones
         }
 
         // GET: api/evaluation/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var evaluation = await _context.Evaluations.FindAsync(id);
             if (evaluation == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra la evaluación
             }
-            return Ok(evaluation);
+            return Ok(evaluation); // Retornar la evaluación encontrada
         }
 
         // POST: api/evaluation
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear una nueva evaluación
             _context.Evaluations.Add(evaluation);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetEvaluation), new { id = evaluation.Id }, evaluation);
+            return CreatedAtAction(nameof(GetEvaluation), new { id = evaluation.Id }, evaluation); // Retornar 201 Created
         }
 
         // PUT: api/evaluation/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar una evaluación existente
             if (id != evaluation.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(evaluation).State = EntityState.Modified;
+            _context.Entry(evaluation).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!EvaluationExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si la evaluación no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/evaluation/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var evaluation = await _context.Evaluations.FindAsync(id);
             if (evaluation == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si la evaluación no se encuentra
             }
 
-            _context.Evaluations.Remove(evaluation);
-            await _context.SaveChangesAsync();
+            _context.Evaluations.Remove(evaluation); // Eliminar la evaluación
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool EvaluationExists(int id)
         {
-            return _context.Evaluations.Any(e => e.Id == id);
+            return _context.Evaluations.Any(e => e.Id == id); // Verificar si la evaluación existe
         }
     }
 }

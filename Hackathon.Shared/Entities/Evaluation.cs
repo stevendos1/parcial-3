@@ -35,5 +35,8 @@ namespace Hackathon.Shared.Entities
 
         [JsonIgnore]
         public Mentor Mentor { get; set; }
+        
+        [JsonIgnore]
+        public List<Criterion> Criteria { get; set; } = new List<Criterion>();
     }
 }

@@ -20,9 +20,9 @@ namespace Hackathon.Shared.Entities
         public List<Participant> Participants { get; set; } = new List<Participant>();
 
         [Display(Name = "ID del Hackathon")]
-        public int HackathonId { get; set; }
+        public int HackathonId { get; set; } 
 
         [JsonIgnore]
-        public Hackathon Hackathon { get; set; }
+        public HackathonEntity HackathonEntity { get; set; }
     }
 }

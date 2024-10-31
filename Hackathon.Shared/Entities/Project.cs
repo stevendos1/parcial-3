@@ -18,6 +18,7 @@ namespace Hackathon.Shared.Entities
         public string Status { get; set; }
 
         [Display(Name = "ID del Equipo")]
+        [Required(ErrorMessage = "El ID del equipo es obligatorio")]
         public int TeamId { get; set; }
 
         [JsonIgnore]

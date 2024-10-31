@@ -22,8 +22,7 @@ namespace Hackathon.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Criterion>>> GetCriteria()
         {
-            // Obtener todos los criterios
-            var criteria = await _context.Criteria.ToListAsync();
+            var criteria = await _context.Criteria.ToListAsync(); // Obtener todos los criterios
             return Ok(criteria);
         }
 
@@ -31,74 +30,70 @@ namespace Hackathon.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Criterion>> GetCriterion(int id)
         {
-            // Buscar un criterio por ID
-            var criterion = await _context.Criteria.FindAsync(id);
+            var criterion = await _context.Criteria.FindAsync(id); // Buscar un criterio por ID
             if (criterion == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el criterio
             }
-            return Ok(criterion);
+            return Ok(criterion); // Retornar el criterio encontrado
         }
 
         // POST: api/criterion
         [HttpPost]
         public async Task<ActionResult<Criterion>> PostCriterion(Criterion criterion)
         {
-            // Crear un nuevo criterio
-            _context.Criteria.Add(criterion);
-            await _context.SaveChangesAsync();
+            _context.Criteria.Add(criterion); // Crear un nuevo criterio
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetCriterion), new { id = criterion.Id }, criterion);
+            return CreatedAtAction(nameof(GetCriterion), new { id = criterion.Id }, criterion); // Retornar 201 Created
         }
 
         // PUT: api/criterion/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCriterion(int id, Criterion criterion)
         {
-            // Actualizar un criterio existente
             if (id != criterion.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(criterion).State = EntityState.Modified;
+            _context.Entry(criterion).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!CriterionExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el criterio no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/criterion/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCriterion(int id)
         {
-            // Eliminar un criterio
-            var criterion = await _context.Criteria.FindAsync(id);
+            var criterion = await _context.Criteria.FindAsync(id); // Eliminar un criterio
             if (criterion == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el criterio no se encuentra
             }
 
-            _context.Criteria.Remove(criterion);
-            await _context.SaveChangesAsync();
+            _context.Criteria.Remove(criterion); // Eliminar el criterio
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool CriterionExists(int id)
         {
-            return _context.Criteria.Any(e => e.Id == id);
+            return _context.Criteria.Any(e => e.Id == id); // Verificar si el criterio existe
         }
     }
 }

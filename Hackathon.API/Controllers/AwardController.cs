@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var award = await _context.Awards.FindAsync(id);
             if (award == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el premio
             }
-            return Ok(award);
+            return Ok(award); // Retornar el premio encontrado
         }
 
         // POST: api/award
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo premio
             _context.Awards.Add(award);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetAward), new { id = award.Id }, award);
+            return CreatedAtAction(nameof(GetAward), new { id = award.Id }, award); // Retornar 201 Created
         }
 
         // PUT: api/award/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un premio existente
             if (id != award.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(award).State = EntityState.Modified;
+            _context.Entry(award).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!AwardExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el premio no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/award/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var award = await _context.Awards.FindAsync(id);
             if (award == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el premio no se encuentra
             }
 
-            _context.Awards.Remove(award);
-            await _context.SaveChangesAsync();
+            _context.Awards.Remove(award); // Eliminar el premio
+            await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool AwardExists(int id)
         {
-            return _context.Awards.Any(e => e.Id == id);
+            return _context.Awards.Any(e => e.Id == id); // Verificar si el premio existe
         }
     }
 }

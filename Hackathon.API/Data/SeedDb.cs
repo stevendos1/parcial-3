@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Hackathon.Shared.Entities; 
+
 
 namespace Hackathon.API.Data
 {
@@ -14,28 +16,29 @@ namespace Hackathon.API.Data
             var context = scope.ServiceProvider.GetRequiredService<DataContext>();
 
             // Comprobar si la base de datos ya tiene datos
-            if (context.Hackathons.Any())
+            if (context.HackathonEntities.Any())
             {
                 return; // La base de datos ya está poblada
             }
 
-            // Crear datos de ejemplo para Hackathons
-            var hackathons = new List<Hackathon>
+            // Crear datos de ejemplo para HackathonEntities
+            var hackathonEntities = new List<HackathonEntity>
             {
-                new Hackathon { Name = "Hackathon 2023", MainTheme = "Innovación", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(7) },
-                new Hackathon { Name = "Hackathon 2024", MainTheme = "Tecnología", StartDate = DateTime.Now.AddDays(10), EndDate = DateTime.Now.AddDays(17) }
+                new HackathonEntity { Name = "Hackathon 2023", MainTheme = "Innovación" },
+                new HackathonEntity { Name = "Hackathon 2024", MainTheme = "Tecnología" }
             };
 
-            context.Hackathons.AddRange(hackathons);
+            context.HackathonEntities.AddRange(hackathonEntities);
             context.SaveChanges();
 
             // Crear datos para Team
             var teams = new List<Team>
             {
-                new Team { Name = "Team Alpha", HackathonId = hackathons[0].Id },
-                new Team { Name = "Team Beta", HackathonId = hackathons[0].Id },
-                new Team { Name = "Team Gamma", HackathonId = hackathons[1].Id }
+                new Team { Name = "Team Alpha", HackathonId = hackathonEntities[0].Id },
+                new Team { Name = "Team Beta", HackathonId = hackathonEntities[0].Id },
+                new Team { Name = "Team Gamma", HackathonId = hackathonEntities[1].Id }
             };
+
 
             context.Teams.AddRange(teams);
             context.SaveChanges();
@@ -75,8 +78,8 @@ namespace Hackathon.API.Data
             // Crear datos para Evaluation
             var evaluations = new List<Evaluation>
             {
-                new Evaluation { Score = 90, Feedback = "Excellent work!", DateTime = DateTime.Now, ProjectId = 1, MentorId = mentors[0].Id },
-                new Evaluation { Score = 85, Feedback = "Good job!", DateTime = DateTime.Now, ProjectId = 2, MentorId = mentors[1].Id }
+                new Evaluation { Score = 90, Feedback = "Excellent work!", EvaluationDate = DateTime.Now, ProjectId = 1, MentorId = mentors[0].Id },
+                new Evaluation { Score = 85, Feedback = "Good job!", EvaluationDate = DateTime.Now, ProjectId = 2, MentorId = mentors[1].Id }
             };
 
             context.Evaluations.AddRange(evaluations);
@@ -85,8 +88,8 @@ namespace Hackathon.API.Data
             // Crear datos para Criterion
             var criteria = new List<Criterion>
             {
-                new Criterion { Name = "Innovation", Description = "Innovative approach to problem-solving", EvaluationId = evaluations[0].Id },
-                new Criterion { Name = "Design", Description = "User-friendly design", EvaluationId = evaluations[1].Id }
+                new Criterion { Name = "Innovation", MaxScore = 100, EvaluationId = evaluations[0].Id },
+                new Criterion { Name = "Design", MaxScore = 100, EvaluationId = evaluations[1].Id }
             };
 
             context.Criteria.AddRange(criteria);
@@ -95,8 +98,8 @@ namespace Hackathon.API.Data
             // Crear datos para Award
             var awards = new List<Award>
             {
-                new Award { Title = "Best Innovation", HackathonId = hackathons[0].Id, Description = "Awarded for the most innovative project." },
-                new Award { Title = "Best Teamwork", HackathonId = hackathons[1].Id, Description = "Awarded for outstanding teamwork." }
+                new Award { Title = "Best Innovation", HackathonId = hackathonEntities[0].Id, Description = "Awarded for the most innovative project." },
+                new Award { Title = "Best Teamwork", HackathonId = hackathonEntities[1].Id, Description = "Awarded for outstanding teamwork." }
             };
 
             context.Awards.AddRange(awards);
@@ -115,8 +118,8 @@ namespace Hackathon.API.Data
             // Crear datos para Sponsor
             var sponsors = new List<Sponsor>
             {
-                new Sponsor { Name = "Company A", Contribution = "Gold Sponsor", HackathonId = hackathons[0].Id },
-                new Sponsor { Name = "Company B", Contribution = "Silver Sponsor", HackathonId = hackathons[1].Id }
+                new Sponsor { Name = "Company A", Contribution = "Gold Sponsor", HackathonId = hackathonEntities[0].Id },
+                new Sponsor { Name = "Company B", Contribution = "Silver Sponsor", HackathonId = hackathonEntities[1].Id }
             };
 
             context.Sponsors.AddRange(sponsors);
@@ -125,8 +128,8 @@ namespace Hackathon.API.Data
             // Crear datos para Schedule
             var schedules = new List<Schedule>
             {
-                new Schedule { Activity = "Opening Ceremony", HackathonId = hackathons[0].Id, EventDate = DateTime.Now.AddDays(1) },
-                new Schedule { Activity = "Closing Ceremony", HackathonId = hackathons[1].Id, EventDate = DateTime.Now.AddDays(18) }
+                new Schedule { Activity = "Opening Ceremony", HackathonId = hackathonEntities[0].Id, EventDate = DateTime.Now.AddDays(1) },
+                new Schedule { Activity = "Closing Ceremony", HackathonId = hackathonEntities[1].Id, EventDate = DateTime.Now.AddDays(18) }
             };
 
             context.Schedules.AddRange(schedules);

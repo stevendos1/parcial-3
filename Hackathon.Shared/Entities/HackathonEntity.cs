@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Hackathon.Shared.Entities
 {
-    public class Hackathon
+    public class HackathonEntity
     {
         public int Id { get; set; }
 

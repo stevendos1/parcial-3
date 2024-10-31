@@ -1,6 +1,19 @@
 @Hackathon.API_HostAddress = http://localhost:5212
 
-GET {{Hackathon.API_HostAddress}}/weatherforecast/
+GET {{Hackathon.API_HostAddress}}/api/hackathon
 Accept: application/json
 
 ###
+
+GET {{Hackathon.API_HostAddress}}/api/hackathon/{id}
+Accept: application/json
+
+###
+
+POST {{Hackathon.API_HostAddress}}/api/hackathon
+Content-Type: application/json
+
+{
+  "name": "Hackathon 2024",
+  "mainTheme": "Innovación"
+}

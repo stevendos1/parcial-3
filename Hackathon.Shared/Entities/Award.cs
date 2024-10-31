@@ -18,9 +18,9 @@ namespace Hackathon.Shared.Entities
 
         [Display(Name = "ID del Hackathon")]
         [Required(ErrorMessage = "El ID de Hackathon es obligatorio")]
-        public int HackathonId { get; set; }
+        public int HackathonId { get; set; } 
 
         [JsonIgnore]
-        public Hackathon Hackathon { get; set; }
+        public HackathonEntity HackathonEntity { get; set; }
     }
 }

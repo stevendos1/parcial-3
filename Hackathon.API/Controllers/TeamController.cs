@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los equipos
             var teams = await _context.Teams.ToListAsync();
-            return Ok(teams);
+            return Ok(teams); // Retornar la lista de equipos
         }
 
         // GET: api/team/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var team = await _context.Teams.FindAsync(id);
             if (team == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el equipo no se encuentra
             }
-            return Ok(team);
+            return Ok(team); // Retornar el equipo encontrado
         }
 
         // POST: api/team
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo equipo
             _context.Teams.Add(team);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetTeam), new { id = team.Id }, team);
+            return CreatedAtAction(nameof(GetTeam), new { id = team.Id }, team); // Retornar 201 Created
         }
 
         // PUT: api/team/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un equipo existente
             if (id != team.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(team).State = EntityState.Modified;
+            _context.Entry(team).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!TeamExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el equipo no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/team/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var team = await _context.Teams.FindAsync(id);
             if (team == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el equipo no se encuentra
             }
 
-            _context.Teams.Remove(team);
-            await _context.SaveChangesAsync();
+            _context.Teams.Remove(team); // Eliminar el equipo
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool TeamExists(int id)
         {
-            return _context.Teams.Any(e => e.Id == id);
+            return _context.Teams.Any(e => e.Id == id); // Verificar si el equipo existe
         }
     }
 }

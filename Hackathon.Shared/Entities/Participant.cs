@@ -19,12 +19,14 @@ namespace Hackathon.Shared.Entities
         public string Email { get; set; }
 
         [Display(Name = "ID del Equipo")]
+        [Required(ErrorMessage = "El ID del equipo es obligatorio")]
         public int TeamId { get; set; }
 
         [JsonIgnore]
         public Team Team { get; set; }
 
         [Display(Name = "ID del Rol")]
+        [Required(ErrorMessage = "El ID del rol es obligatorio")]
         public int RoleId { get; set; }
 
         [JsonIgnore]

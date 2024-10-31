@@ -17,9 +17,9 @@ namespace Hackathon.Shared.Entities
         public string Contribution { get; set; }
 
         [Display(Name = "ID del Hackathon")]
-        public int HackathonId { get; set; }
+        public int HackathonId { get; set; } 
 
         [JsonIgnore]
-        public Hackathon Hackathon { get; set; }
+        public HackathonEntity HackathonEntity { get; set; } 
     }
 }

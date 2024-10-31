@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los horarios
             var schedules = await _context.Schedules.ToListAsync();
-            return Ok(schedules);
+            return Ok(schedules); // Retornar la lista de horarios
         }
 
         // GET: api/schedule/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var schedule = await _context.Schedules.FindAsync(id);
             if (schedule == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el horario
             }
-            return Ok(schedule);
+            return Ok(schedule); // Retornar el horario encontrado
         }
 
         // POST: api/schedule
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo horario
             _context.Schedules.Add(schedule);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetSchedule), new { id = schedule.Id }, schedule);
+            return CreatedAtAction(nameof(GetSchedule), new { id = schedule.Id }, schedule); // Retornar 201 Created
         }
 
         // PUT: api/schedule/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un horario existente
             if (id != schedule.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(schedule).State = EntityState.Modified;
+            _context.Entry(schedule).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!ScheduleExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el horario no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/schedule/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var schedule = await _context.Schedules.FindAsync(id);
             if (schedule == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el horario no se encuentra
             }
 
-            _context.Schedules.Remove(schedule);
-            await _context.SaveChangesAsync();
+            _context.Schedules.Remove(schedule); // Eliminar el horario
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool ScheduleExists(int id)
         {
-            return _context.Schedules.Any(e => e.Id == id);
+            return _context.Schedules.Any(e => e.Id == id); // Verificar si el horario existe
         }
     }
 }
