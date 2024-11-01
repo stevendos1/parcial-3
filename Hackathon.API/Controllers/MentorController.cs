@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los mentores
             var mentors = await _context.Mentors.ToListAsync();
-            return Ok(mentors);
+            return Ok(mentors); // Retornar la lista de mentores
         }
 
         // GET: api/mentor/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var mentor = await _context.Mentors.FindAsync(id);
             if (mentor == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el mentor
             }
-            return Ok(mentor);
+            return Ok(mentor); // Retornar el mentor encontrado
         }
 
         // POST: api/mentor
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo mentor
             _context.Mentors.Add(mentor);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetMentor), new { id = mentor.Id }, mentor);
+            return CreatedAtAction(nameof(GetMentor), new { id = mentor.Id }, mentor); // Retornar 201 Created
         }
 
         // PUT: api/mentor/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un mentor existente
             if (id != mentor.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(mentor).State = EntityState.Modified;
+            _context.Entry(mentor).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!MentorExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el mentor no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/mentor/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var mentor = await _context.Mentors.FindAsync(id);
             if (mentor == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el mentor no se encuentra
             }
 
-            _context.Mentors.Remove(mentor);
-            await _context.SaveChangesAsync();
+            _context.Mentors.Remove(mentor); // Eliminar el mentor
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool MentorExists(int id)
         {
-            return _context.Mentors.Any(e => e.Id == id);
+            return _context.Mentors.Any(e => e.Id == id); // Verificar si el mentor existe
         }
     }
 }

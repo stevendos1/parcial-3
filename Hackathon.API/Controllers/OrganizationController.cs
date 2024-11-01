@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todas las organizaciones
             var organizations = await _context.Organizations.ToListAsync();
-            return Ok(organizations);
+            return Ok(organizations); // Retornar la lista de organizaciones
         }
 
         // GET: api/organization/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var organization = await _context.Organizations.FindAsync(id);
             if (organization == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra la organización
             }
-            return Ok(organization);
+            return Ok(organization); // Retornar la organización encontrada
         }
 
         // POST: api/organization
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear una nueva organización
             _context.Organizations.Add(organization);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetOrganization), new { id = organization.Id }, organization);
+            return CreatedAtAction(nameof(GetOrganization), new { id = organization.Id }, organization); // Retornar 201 Created
         }
 
         // PUT: api/organization/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar una organización existente
             if (id != organization.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(organization).State = EntityState.Modified;
+            _context.Entry(organization).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!OrganizationExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si la organización no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/organization/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var organization = await _context.Organizations.FindAsync(id);
             if (organization == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si la organización no se encuentra
             }
 
-            _context.Organizations.Remove(organization);
-            await _context.SaveChangesAsync();
+            _context.Organizations.Remove(organization); // Eliminar la organización
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool OrganizationExists(int id)
         {
-            return _context.Organizations.Any(e => e.Id == id);
+            return _context.Organizations.Any(e => e.Id == id); // Verificar si la organización existe
         }
     }
 }

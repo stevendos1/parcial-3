@@ -24,7 +24,7 @@ namespace Hackathon.API.Controllers
         {
             // Obtener todos los proyectos
             var projects = await _context.Projects.ToListAsync();
-            return Ok(projects);
+            return Ok(projects); // Retornar la lista de proyectos
         }
 
         // GET: api/project/{id}
@@ -35,9 +35,9 @@ namespace Hackathon.API.Controllers
             var project = await _context.Projects.FindAsync(id);
             if (project == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si no se encuentra el proyecto
             }
-            return Ok(project);
+            return Ok(project); // Retornar el proyecto encontrado
         }
 
         // POST: api/project
@@ -46,9 +46,9 @@ namespace Hackathon.API.Controllers
         {
             // Crear un nuevo proyecto
             _context.Projects.Add(project);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return CreatedAtAction(nameof(GetProject), new { id = project.Id }, project);
+            return CreatedAtAction(nameof(GetProject), new { id = project.Id }, project); // Retornar 201 Created
         }
 
         // PUT: api/project/{id}
@@ -58,25 +58,25 @@ namespace Hackathon.API.Controllers
             // Actualizar un proyecto existente
             if (id != project.Id)
             {
-                return BadRequest();
+                return BadRequest(); // Retornar 400 si el ID no coincide
             }
 
-            _context.Entry(project).State = EntityState.Modified;
+            _context.Entry(project).State = EntityState.Modified; // Marcar el estado como modificado
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!ProjectExists(id))
                 {
-                    return NotFound();
+                    return NotFound(); // Retornar 404 si el proyecto no existe
                 }
-                throw;
+                throw; // Propagar la excepción si ocurre otro error
             }
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         // DELETE: api/project/{id}
@@ -87,18 +87,18 @@ namespace Hackathon.API.Controllers
             var project = await _context.Projects.FindAsync(id);
             if (project == null)
             {
-                return NotFound();
+                return NotFound(); // Retornar 404 si el proyecto no se encuentra
             }
 
-            _context.Projects.Remove(project);
-            await _context.SaveChangesAsync();
+            _context.Projects.Remove(project); // Eliminar el proyecto
+            await _context.SaveChangesAsync(); // Guardar cambios en la base de datos
 
-            return NoContent();
+            return NoContent(); // Retornar 204 No Content
         }
 
         private bool ProjectExists(int id)
         {
-            return _context.Projects.Any(e => e.Id == id);
+            return _context.Projects.Any(e => e.Id == id); // Verificar si el proyecto existe
         }
     }
 }

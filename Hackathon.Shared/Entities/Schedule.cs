@@ -23,6 +23,6 @@ namespace Hackathon.Shared.Entities
         public int HackathonId { get; set; }
 
         [JsonIgnore]
-        public Hackathon Hackathon { get; set; }
+        public HackathonEntity HackathonEntity { get; set; }
     }
 }

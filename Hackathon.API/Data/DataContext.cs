@@ -1,16 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Hackathon.Shared.Entities;
-using Hackathon.API.Data;
-using Microsoft.EntityFrameworkCore;
-
-var builder = WebApplication.CreateBuilder(args);
-
-
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-var app = builder.Build();
-
 
 namespace Hackathon.API.Data
 {
@@ -20,7 +9,7 @@ namespace Hackathon.API.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         // DbSets que representan cada entidad en la base de datos
-        public DbSet<Hackathon.Shared.Entities.Hackathon> Hackathons { get; set; }
+        public DbSet<HackathonEntity> HackathonEntities { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -38,13 +27,13 @@ namespace Hackathon.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configuración de propiedades de la entidad Hackathon
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+            // Configuración de propiedades de la entidad HackathonEntity
+            modelBuilder.Entity<HackathonEntity>()
                 .Property(h => h.Name)
                 .HasMaxLength(100)
                 .IsRequired();
 
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+            modelBuilder.Entity<HackathonEntity>()
                 .Property(h => h.MainTheme)
                 .HasMaxLength(200)
                 .IsRequired();
@@ -133,71 +122,66 @@ namespace Hackathon.API.Data
 
             // Configuración de relaciones entre entidades
 
-            // Relación Hackathon - Teams (uno a muchos)
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+            // Relación HackathonEntity - Teams (uno a muchos)
+            modelBuilder.Entity<HackathonEntity>()
                 .HasMany(h => h.Teams)
-                .WithOne(t => t.Hackathon)
-                .HasForeignKey(t => t.HackathonId);
+                .WithOne(t => t.HackathonEntity) // Nombre correcto de la propiedad en Team
+                .HasForeignKey(t => t.HackathonId); // Cambiar a HackathonEntityId si es necesario
 
-            // Relación Hackathon - Schedules (uno a muchos)
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+            // Relación HackathonEntity - Schedules (uno a muchos)
+            modelBuilder.Entity<HackathonEntity>()
                 .HasMany(h => h.Schedules)
-                .WithOne(s => s.Hackathon)
-                .HasForeignKey(s => s.HackathonId);
+                .WithOne(s => s.HackathonEntity) // Nombre correcto de la propiedad en Schedule
+                .HasForeignKey(s => s.HackathonId); // Usar HackathonId aquí
 
-            // Relación Hackathon - Awards (uno a muchos)
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+
+            // Relación HackathonEntity - Awards (uno a muchos)
+            modelBuilder.Entity<HackathonEntity>()
                 .HasMany(h => h.Awards)
-                .WithOne(a => a.Hackathon)
-                .HasForeignKey(a => a.HackathonId);
+                .WithOne(a => a.HackathonEntity) // Nombre correcto de la propiedad en Award
+                .HasForeignKey(a => a.HackathonId); // Cambiar a HackathonEntityId si es necesario
 
-            // Relación Hackathon - Sponsors (uno a muchos)
-            modelBuilder.Entity<Hackathon.Shared.Entities.Hackathon>()
+            // Relación HackathonEntity - Sponsors (uno a muchos)
+            modelBuilder.Entity<HackathonEntity>()
                 .HasMany(h => h.Sponsors)
-                .WithOne(s => s.Hackathon)
-                .HasForeignKey(s => s.HackathonId);
+                .WithOne(s => s.HackathonEntity) // Nombre correcto de la propiedad en Sponsor
+                .HasForeignKey(s => s.HackathonId); // Cambiar a HackathonEntityId si es necesario
 
             // Relación Team - Projects (uno a muchos)
             modelBuilder.Entity<Project>()
                 .HasOne(p => p.Team)
                 .WithMany(t => t.Projects)
-                .HasForeignKey(p => p.TeamId);
+                .HasForeignKey(p => p.TeamId); // Cambiar a TeamId si es necesario
 
             // Relación Team - Participants (uno a muchos)
             modelBuilder.Entity<Team>()
                 .HasMany(t => t.Participants)
                 .WithOne(p => p.Team)
-                .HasForeignKey(p => p.TeamId);
+                .HasForeignKey(p => p.TeamId); // Cambiar a TeamId si es necesario
 
             // Relación Evaluation - Project (muchos a uno)
             modelBuilder.Entity<Evaluation>()
                 .HasOne(e => e.Project)
                 .WithMany(p => p.Evaluations)
-                .HasForeignKey(e => e.ProjectId);
+                .HasForeignKey(e => e.ProjectId); // Cambiar a ProjectId si es necesario
 
             // Relación Evaluation - Mentor (muchos a uno)
             modelBuilder.Entity<Evaluation>()
                 .HasOne(e => e.Mentor)
                 .WithMany(m => m.Evaluations)
-                .HasForeignKey(e => e.MentorId);
-
-            // Relación Award - Hackathon (uno a muchos)
-            modelBuilder.Entity<Award>()
-                .HasOne(a => a.Hackathon)
-                .WithMany(h => h.Awards)
-                .HasForeignKey(a => a.HackathonId);
+                .HasForeignKey(e => e.MentorId); // Cambiar a MentorId si es necesario
 
             // Relación Criterion - Evaluation (muchos a uno)
             modelBuilder.Entity<Criterion>()
                 .HasOne(c => c.Evaluation)
                 .WithMany(e => e.Criteria)
-                .HasForeignKey(c => c.EvaluationId);
+                .HasForeignKey(c => c.EvaluationId); // Cambiar a EvaluationId si es necesario
 
-            // Relación Sponsor - Hackathon (uno a muchos)
+            // Relación Sponsor - HackathonEntity (uno a muchos)
             modelBuilder.Entity<Sponsor>()
-                .HasOne(s => s.Hackathon)
+                .HasOne(s => s.HackathonEntity)
                 .WithMany(h => h.Sponsors)
-                .HasForeignKey(s => s.HackathonId);
+                .HasForeignKey(s => s.HackathonId); // Cambiar a HackathonEntityId si es necesario
         }
     }
 }
