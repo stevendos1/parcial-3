@@ -1,0 +1,36 @@
+﻿@page "/organizations/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Organización</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<OrganizationForm @ref="organizationForm" Organization="organization" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Organization organization = new();
+    private OrganizationForm organizationForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/organizations", organization);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/organizations");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear la organización.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/organizations");
+    }
+}

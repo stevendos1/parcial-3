@@ -1,0 +1,26 @@
+@page "/awards/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Premio</h3>
+
+<AwardForm @ref="awardForm" Award="award" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Award award = new();
+    private AwardForm awardForm;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/awards", award);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/awards");
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/awards");
+    }
+}

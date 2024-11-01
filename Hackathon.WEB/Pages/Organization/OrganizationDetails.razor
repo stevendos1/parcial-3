@@ -1,0 +1,35 @@
+﻿@page "/organizations/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles de la Organización</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Organization != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @Organization.Name</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Organization Organization { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Organization>($"/api/organizations/{Id}");
+        if (!response.Error)
+        {
+            Organization = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles de la organización.";
+        }
+    }
+}

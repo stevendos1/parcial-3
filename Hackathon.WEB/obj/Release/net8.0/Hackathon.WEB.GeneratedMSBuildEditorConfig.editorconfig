@@ -26,20 +26,244 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Award/AwardCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXdhcmRcQXdhcmRDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Award/AwardDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXdhcmRcQXdhcmREZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/OwnersIndex.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3duZXJzSW5kZXgucmF6b3I=
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Award/AwardEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXdhcmRcQXdhcmRFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Award/AwardForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXdhcmRcQXdhcmRGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Award/AwardIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXdhcmRcQXdhcmRJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Criterion/CriterionCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpdGVyaW9uXENyaXRlcmlvbkNyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Criterion/CriterionDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpdGVyaW9uXENyaXRlcmlvbkRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Criterion/CriterionEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpdGVyaW9uXENyaXRlcmlvbkVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Criterion/CriterionForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpdGVyaW9uXENyaXRlcmlvbkZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Criterion/CriterionIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpdGVyaW9uXENyaXRlcmlvbkluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Evaluation/EvaluationCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZhbHVhdGlvblxFdmFsdWF0aW9uQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Evaluation/EvaluationDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZhbHVhdGlvblxFdmFsdWF0aW9uRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Evaluation/EvaluationEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZhbHVhdGlvblxFdmFsdWF0aW9uRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Evaluation/EvaluationForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZhbHVhdGlvblxFdmFsdWF0aW9uRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Evaluation/EvaluationIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZhbHVhdGlvblxFdmFsdWF0aW9uSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/HackathonEntity/HackathonEntityCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFja2F0aG9uRW50aXR5XEhhY2thdGhvbkVudGl0eUNyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/HackathonEntity/HackathonEntityDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFja2F0aG9uRW50aXR5XEhhY2thdGhvbkVudGl0eURldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/HackathonEntity/HackathonEntityEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFja2F0aG9uRW50aXR5XEhhY2thdGhvbkVudGl0eUVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/HackathonEntity/HackathonEntityForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFja2F0aG9uRW50aXR5XEhhY2thdGhvbkVudGl0eUZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/HackathonEntity/HackathonEntityIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFja2F0aG9uRW50aXR5XEhhY2thdGhvbkVudGl0eUluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Mentor/MentorCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudG9yXE1lbnRvckNyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Mentor/MentorDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudG9yXE1lbnRvckRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Mentor/MentorEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudG9yXE1lbnRvckVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Mentor/MentorForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudG9yXE1lbnRvckZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Mentor/MentorIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudG9yXE1lbnRvckluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Organization/OrganizationCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0aW9uXE9yZ2FuaXphdGlvbkNyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Organization/OrganizationDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0aW9uXE9yZ2FuaXphdGlvbkRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Organization/OrganizationEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0aW9uXE9yZ2FuaXphdGlvbkVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Organization/OrganizationForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0aW9uXE9yZ2FuaXphdGlvbkZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Organization/OrganizationIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0aW9uXE9yZ2FuaXphdGlvbkluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Participant/ParticipantCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRcUGFydGljaXBhbnRDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Participant/ParticipantDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRcUGFydGljaXBhbnREZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Participant/ParticipantEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRcUGFydGljaXBhbnRFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Participant/ParticipantForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRcUGFydGljaXBhbnRGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Participant/ParticipantIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGljaXBhbnRcUGFydGljaXBhbnRJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Project/ProjectCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0Q3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Project/ProjectDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Project/ProjectEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0RWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Project/ProjectForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0Rm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Project/ProjectIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFxQcm9qZWN0SW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Role/RoleCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZVxSb2xlQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Role/RoleDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZVxSb2xlRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Role/RoleEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZVxSb2xlRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Role/RoleForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZVxSb2xlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Role/RoleIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZVxSb2xlSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Schedule/ScheduleCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU2NoZWR1bGVDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Schedule/ScheduleDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU2NoZWR1bGVEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Schedule/ScheduleEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU2NoZWR1bGVFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Schedule/ScheduleForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU2NoZWR1bGVGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Schedule/ScheduleIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcU2NoZWR1bGVJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Sponsor/SponsorCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvbnNvclxTcG9uc29yQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Sponsor/SponsorDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvbnNvclxTcG9uc29yRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Sponsor/SponsorEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvbnNvclxTcG9uc29yRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Sponsor/SponsorForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvbnNvclxTcG9uc29yRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Sponsor/SponsorIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvbnNvclxTcG9uc29ySW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Team/TeamCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVxUZWFtQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Team/TeamDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVxUZWFtRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Team/TeamEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVxUZWFtRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Team/TeamForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVxUZWFtRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Pages/Team/TeamIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhbVxUZWFtSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Shared/GenericList.razor]

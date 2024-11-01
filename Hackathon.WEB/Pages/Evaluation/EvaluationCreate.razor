@@ -1,0 +1,37 @@
+﻿@page "/evaluations/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Evaluación</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<EvaluationForm @ref="evaluationForm" Evaluation="evaluation" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Evaluation evaluation = new();
+    private EvaluationForm evaluationForm;
+    private string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.Post("/api/evaluations", evaluation);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/evaluations");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear la evaluación: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/evaluations");
+    }
+}

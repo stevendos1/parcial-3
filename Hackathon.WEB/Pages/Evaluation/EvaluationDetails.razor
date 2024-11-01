@@ -1,0 +1,31 @@
+﻿@page "/evaluations/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles de Evaluación</h3>
+
+@if (evaluation != null)
+{
+    <div>
+        <p><strong>Puntuación:</strong> @evaluation.Score</p>
+        <p><strong>Comentarios:</strong> @evaluation.Feedback</p>
+        <p><strong>Fecha de Evaluación:</strong> @evaluation.EvaluationDate.ToString("yyyy/MM/dd")</p>
+        <p><strong>ID del Proyecto:</strong> @evaluation.ProjectId</p>
+        <p><strong>ID del Mentor:</strong> @evaluation.MentorId</p>
+    </div>
+}
+else
+{
+    <p>Evaluación no encontrada.</p>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Evaluation evaluation;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Evaluation>($"/api/evaluations/{Id}");
+        evaluation = response.Response;
+    }
+}

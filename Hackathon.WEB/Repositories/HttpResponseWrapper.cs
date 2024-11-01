@@ -1,34 +1,20 @@
-using System.Net;
-using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Hackathon.WEB.Repositories
 {
     public class HttpResponseWrapper<T>
     {
-        public HttpResponseWrapper(T? response, bool error, HttpResponseMessage httpResponseMessage)
+        public HttpResponseWrapper(T response, bool error, HttpResponseMessage httpResponseMessage, string errorMessage = "")
         {
-            Error = error;
             Response = response;
+            Error = error;
             HttpResponseMessage = httpResponseMessage;
+            ErrorMessage = errorMessage;
         }
 
-        public bool Error { get; set; }
-        public T? Response { get; set; }
-        public HttpResponseMessage HttpResponseMessage { get; set; }
-
-        public async Task<string?> GetErrorMessage()
-        {
-            if (!Error) return null;
-
-            var statusCode = HttpResponseMessage.StatusCode;
-            return statusCode switch
-            {
-                HttpStatusCode.NotFound => "Recurso no encontrado",
-                HttpStatusCode.BadRequest => await HttpResponseMessage.Content.ReadAsStringAsync(),
-                HttpStatusCode.Unauthorized => "Debes loguearte para realizar esta acción",
-                HttpStatusCode.Forbidden => "No tienes permisos para ejecutar esta acción",
-                _ => "Ha ocurrido un error inesperado",
-            };
-        }
+        public T Response { get; }
+        public bool Error { get; }
+        public HttpResponseMessage HttpResponseMessage { get; }
+        public string ErrorMessage { get; }
     }
 }

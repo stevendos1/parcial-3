@@ -1,0 +1,39 @@
+﻿@page "/mentors/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Mentor</h3>
+
+<MentorForm @ref="mentorForm" Mentor="mentor" OnSubmit="Create" ReturnAction="Return" />
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@code {
+    private Mentor mentor = new();
+    private MentorForm mentorForm;
+
+    // Agregar la propiedad ErrorMessage para manejar errores
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.Post("/api/mentors", mentor);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/mentors");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el mentor: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/mentors");
+    }
+}

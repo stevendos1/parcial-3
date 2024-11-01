@@ -1,0 +1,70 @@
+﻿@page "/hackathons/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Hackathon</h3>
+
+@if (hackathonEntity == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <HackathonEntityForm @ref="hackathonForm" HackathonEntity="hackathonEntity" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@code {
+    private HackathonEntity hackathonEntity;
+    private HackathonEntityForm hackathonForm;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    // Propiedad para manejar el mensaje de error
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadHackathon();
+    }
+
+    private async Task LoadHackathon()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.GetAsync<HackathonEntity>($"/api/hackathons/{Id}");
+        if (!response.Error)
+        {
+            hackathonEntity = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el hackathon.";
+            navigationManager.NavigateTo("/hackathons");
+        }
+    }
+
+    private async Task Edit()
+    {
+        ErrorMessage = string.Empty;
+        
+        var response = await repository.PutAsync($"/api/hackathons/{Id}", hackathonEntity);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/hackathons");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el hackathon: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/hackathons");
+    }
+}

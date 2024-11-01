@@ -1,0 +1,39 @@
+﻿@page "/hackathons/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Hackathon</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<HackathonEntityForm @ref="hackathonForm" HackathonEntity="hackathonEntity" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private HackathonEntity hackathonEntity = new HackathonEntity();
+    private HackathonEntityForm hackathonForm;
+
+    // Propiedad para mensajes de error
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        ErrorMessage = string.Empty; // Limpiar mensaje de error antes de la solicitud
+        var response = await repository.Post("/api/hackathons", hackathonEntity);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/hackathons");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el hackathon: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/hackathons");
+    }
+}

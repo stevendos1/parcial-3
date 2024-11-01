@@ -1,0 +1,121 @@
+@page "/awards"
+@using Hackathon.Shared.Entities
+@using Hackathon.WEB.Repositories
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Premios</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@if (!string.IsNullOrEmpty(SuccessMessage))
+{
+    <div class="alert alert-success">@SuccessMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/awards/create">Nuevo Premio</a>
+</div>
+
+<GenericList MyList="Awards">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>ID del Hackathon</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Awards != null && Awards.Count > 0)
+                {
+                    @foreach (var award in Awards)
+                    {
+                        <tr>
+                            <td>@award.Title</td>
+                            <td>@award.Description</td>
+                            <td>@award.HackathonId</td>
+                            <td>
+                                <a href="/awards/edit/@award.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => ConfirmDelete(award))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">No hay premios disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Award> Awards { get; set; } = new List<Award>();
+    public string ErrorMessage { get; set; } = string.Empty;
+    public string SuccessMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await LoadAwards();
+    }
+
+    private async Task LoadAwards()
+    {
+        ClearMessages();
+        var response = await repository.GetAsync<List<Award>>("/api/awards");
+        if (!response.Error)
+        {
+            Awards = response.Response ?? new List<Award>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los premios: " + response.ErrorMessage;
+        }
+    }
+
+    private async Task ConfirmDelete(Award award)
+    {
+        var confirmed = await ShowConfirmationDialog($"¿Estás seguro de que deseas eliminar el premio '{award.Title}'?");
+        if (confirmed)
+        {
+            await DeleteAward(award);
+        }
+    }
+
+    private async Task DeleteAward(Award award)
+    {
+        ClearMessages();
+        var response = await repository.DeleteAsync($"api/awards/{award.Id}");
+
+        if (!response.Error)
+        {
+            SuccessMessage = "Premio eliminado correctamente.";
+            await LoadAwards(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el premio: " + response.ErrorMessage;
+        }
+    }
+
+    private async Task<bool> ShowConfirmationDialog(string message)
+    {
+        // Simulamos confirmación como siempre "true" para simplificar
+        return await Task.FromResult(true);
+    }
+
+    private void ClearMessages()
+    {
+        ErrorMessage = string.Empty;
+        SuccessMessage = string.Empty;
+    }
+}

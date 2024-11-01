@@ -4,14 +4,14 @@
     "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj": {
+    "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
-        "projectName": "Hackathon.WEB",
-        "projectPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
+        "projectUniqueName": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj",
+        "projectName": "Hackathon.Shared",
+        "projectPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj",
         "packagesPath": "C:\\Users\\stevendos1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\obj\\",
+        "outputPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,13 +43,96 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
+        "projectName": "Hackathon.WEB",
+        "projectPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
+        "packagesPath": "C:\\Users\\stevendos1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\stevendos1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj": {
+                "projectPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Blazored.Toast": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "Microsoft.AspNetCore.Components.Authorization": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -58,6 +141,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.10, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -68,7 +155,7 @@
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )",
+              "version": "[9.0.0-rc.2.24473.5, )",
               "autoReferenced": true
             }
           },
@@ -94,7 +181,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

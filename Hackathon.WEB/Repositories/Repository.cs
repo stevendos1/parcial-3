@@ -1,5 +1,6 @@
-using System.Text;
-using System.Text.Json;
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace Hackathon.WEB.Repositories
@@ -7,47 +8,70 @@ namespace Hackathon.WEB.Repositories
     public class Repository : IRepository
     {
         private readonly HttpClient _httpClient;
-        private JsonSerializerOptions _jsonOptions => new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
         public Repository(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<HttpResponseWrapper<T>> Get<T>(string url)
+        public async Task<HttpResponseWrapper<T>> GetAsync<T>(string url)
         {
-            var response = await _httpClient.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var data = await DeserializeResponse<T>(response);
-                return new HttpResponseWrapper<T>(data, false, response);
+                var response = await _httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadFromJsonAsync<T>();
+                    return new HttpResponseWrapper<T>(data, false, response);
+                }
+                else
+                {
+                    return new HttpResponseWrapper<T>(default, true, response);
+                }
             }
-            return new HttpResponseWrapper<T>(default, true, response);
-        }
-
-        public async Task<HttpResponseWrapper<object>> Post<T>(string url, T model)
-        {
-            var content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(url, content);
-            return new HttpResponseWrapper<object>(null, !response.IsSuccessStatusCode, response);
-        }
-
-        public async Task<HttpResponseWrapper<TResponse>> Post<T, TResponse>(string url, T model)
-        {
-            var content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(url, content);
-            if (response.IsSuccessStatusCode)
+            catch (Exception ex)
             {
-                var data = await DeserializeResponse<TResponse>(response);
-                return new HttpResponseWrapper<TResponse>(data, false, response);
+                return new HttpResponseWrapper<T>(default, true, null, ex.Message);
             }
-            return new HttpResponseWrapper<TResponse>(default, true, response);
         }
 
-        private async Task<T> DeserializeResponse<T>(HttpResponseMessage response)
+        public async Task<HttpResponseWrapper<object>> Post<T>(string url, T data)
         {
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(responseString, _jsonOptions)!;
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync(url, data);
+                return new HttpResponseWrapper<object>(null, !response.IsSuccessStatusCode, response);
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseWrapper<object>(null, true, null, ex.Message);
+            }
+        }
+
+        public async Task<HttpResponseWrapper<object>> PutAsync<T>(string url, T data)
+        {
+            try
+            {
+                var response = await _httpClient.PutAsJsonAsync(url, data);
+                return new HttpResponseWrapper<object>(null, !response.IsSuccessStatusCode, response);
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseWrapper<object>(null, true, null, ex.Message);
+            }
+        }
+
+        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url) // Corrección aquí
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync(url);
+                return new HttpResponseWrapper<object>(null, !response.IsSuccessStatusCode, response);
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseWrapper<object>(null, true, null, ex.Message);
+            }
         }
     }
 }

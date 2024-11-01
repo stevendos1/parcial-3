@@ -26,5 +26,9 @@ namespace Hackathon.Shared.Entities
 
         [JsonIgnore]
         public List<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
+
+        [Display(Name = "Descripción del Proyecto")]
+        [MaxLength(500, ErrorMessage = "La descripción no puede tener más de 500 caracteres.")]
+        public string Description { get; set; }
     }
 }

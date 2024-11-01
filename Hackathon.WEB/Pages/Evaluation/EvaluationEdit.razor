@@ -1,0 +1,67 @@
+﻿@page "/evaluations/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Evaluación</h3>
+
+@if (evaluation == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <EvaluationForm @ref="evaluationForm" Evaluation="evaluation" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@code {
+    private Evaluation evaluation;
+    private EvaluationForm evaluationForm;
+    private string ErrorMessage { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadEvaluation();
+    }
+
+    private async Task LoadEvaluation()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.GetAsync<Evaluation>($"/api/evaluations/{Id}");
+        if (!response.Error)
+        {
+            evaluation = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar la evaluación.";
+            navigationManager.NavigateTo("/evaluations");
+        }
+    }
+
+    private async Task Edit()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.PutAsync($"/api/evaluations/{Id}", evaluation); // Corrected method name to PutAsync
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/evaluations");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar la evaluación: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/evaluations");
+    }
+}

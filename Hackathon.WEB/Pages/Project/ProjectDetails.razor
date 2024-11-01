@@ -1,0 +1,38 @@
+﻿@page "/projects/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Proyecto</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Project != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @Project.Name</p>
+        <p><strong>Descripción:</strong> @Project.Description</p>
+        <p><strong>Estado:</strong> @Project.Status</p>
+        <p><strong>ID del Equipo:</strong> @Project.TeamId</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Project Project { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Project>($"/api/projects/{Id}");
+        if (!response.Error)
+        {
+            Project = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del proyecto.";
+        }
+    }
+}

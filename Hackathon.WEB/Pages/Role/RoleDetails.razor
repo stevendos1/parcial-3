@@ -1,0 +1,35 @@
+﻿@page "/roles/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Rol</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Role != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @Role.Name</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Role Role { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Role>($"/api/roles/{Id}");
+        if (!response.Error)
+        {
+            Role = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del rol.";
+        }
+    }
+}

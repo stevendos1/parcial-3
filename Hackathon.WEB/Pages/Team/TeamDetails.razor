@@ -1,0 +1,35 @@
+﻿@page "/teams/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Equipo</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Team != null)
+{
+    <div>
+        <p><strong>Nombre del Equipo:</strong> @Team.Name</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Team Team { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Team>($"/api/teams/{Id}");
+        if (!response.Error)
+        {
+            Team = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del equipo.";
+        }
+    }
+}

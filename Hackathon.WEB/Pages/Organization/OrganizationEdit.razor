@@ -1,0 +1,52 @@
+﻿@page "/organizations/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Organización</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Organization != null)
+{
+    <OrganizationForm @ref="organizationForm" Organization="Organization" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Organization Organization { get; set; } = new();
+    private OrganizationForm organizationForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Organization>($"/api/organizations/{Id}");
+        if (!response.Error)
+        {
+            Organization = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar la organización.";
+        }
+    }
+
+    private async Task Edit()
+    {
+        var response = await repository.PutAsync("/api/organizations", Organization);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/organizations");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar la organización.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/organizations");
+    }
+}

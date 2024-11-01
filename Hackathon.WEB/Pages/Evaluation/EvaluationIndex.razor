@@ -1,0 +1,93 @@
+﻿@page "/evaluations"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Evaluaciones</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/evaluations/create">Nueva Evaluación</a>
+</div>
+
+<GenericList MyList="Evaluations">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Puntuación</th>
+                    <th>Comentarios</th>
+                    <th>Fecha</th>
+                    <th>Proyecto</th>
+                    <th>Mentor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Evaluations != null && Evaluations.Count > 0)
+                {
+                    @foreach (var evaluation in Evaluations)
+                    {
+                        <tr>
+                            <td>@evaluation.Score</td>
+                            <td>@evaluation.Feedback</td>
+                            <td>@evaluation.EvaluationDate.ToString("yyyy/MM/dd")</td>
+                            <td>@evaluation.ProjectId</td>
+                            <td>@evaluation.MentorId</td>
+                            <td>
+                                <a href="/evaluations/edit/@evaluation.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(evaluation))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No hay evaluaciones disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Evaluation>>("/api/evaluations");
+        if (!response.Error)
+        {
+            Evaluations = response.Response ?? new List<Evaluation>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar las evaluaciones.";
+        }
+    }
+
+    private async Task Delete(Evaluation evaluation)
+    {
+        var response = await repository.DeleteAsync($"api/evaluations/{evaluation.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar la evaluación.";
+        }
+    }
+}

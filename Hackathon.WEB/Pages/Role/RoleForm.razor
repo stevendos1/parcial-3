@@ -1,0 +1,16 @@
+﻿<EditForm Model="Role" OnSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label>Nombre del Rol:</label>
+        <InputText class="form-control" @bind-Value="Role.Name" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Role Role { get; set; } = new();
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public EventCallback ReturnAction { get; set; }
+}

@@ -1,0 +1,31 @@
+﻿@page "/criteria/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Criterio</h3>
+
+<CriterionForm @ref="criterionForm" Criterion="criterion" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Criterion criterion = new();
+    private CriterionForm criterionForm;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/criteria", criterion);
+        if (!response.Error)
+        {
+            Console.WriteLine("Criterio creado correctamente");
+            navigationManager.NavigateTo("/criteria");
+        }
+        else
+        {
+            Console.WriteLine("Error al crear el criterio");
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/criteria");
+    }
+}

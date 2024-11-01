@@ -1,0 +1,36 @@
+﻿@page "/schedules/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Evento</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Schedule != null)
+{
+    <div>
+        <p><strong>Fecha del Evento:</strong> @Schedule.EventDate.ToString("yyyy/MM/dd")</p>
+        <p><strong>Actividad:</strong> @Schedule.Activity</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Schedule Schedule { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Schedule>($"/api/schedules/{Id}");
+        if (!response.Error)
+        {
+            Schedule = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del evento.";
+        }
+    }
+}

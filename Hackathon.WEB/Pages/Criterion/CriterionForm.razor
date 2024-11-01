@@ -1,0 +1,50 @@
+﻿@using Hackathon.Shared.Entities
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="Award" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="title">Título del Premio:</label>
+        <InputText id="title" class="form-control" @bind-Value="Award.Title" />
+        <ValidationMessage For="@(() => Award.Title)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="description">Descripción del Premio:</label>
+        <InputTextArea id="description" class="form-control" @bind-Value="Award.Description" />
+        <ValidationMessage For="@(() => Award.Description)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="hackathonId">ID del Hackathon:</label>
+        <InputNumber id="hackathonId" class="form-control" @bind-Value="Award.HackathonId" />
+        <ValidationMessage For="@(() => Award.HackathonId)" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-secondary" type="button" @onclick="Return">Cancelar</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public Award Award { get; set; } = new Award();
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+
+    [Parameter]
+    public EventCallback ReturnAction { get; set; }
+
+    private async Task HandleValidSubmit()
+    {
+        await OnSubmit.InvokeAsync();
+    }
+
+    private void Return()
+    {
+        ReturnAction.InvokeAsync();
+    }
+}

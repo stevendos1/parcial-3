@@ -1,0 +1,86 @@
+﻿@page "/sponsors"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Patrocinadores</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/sponsors/create">Nuevo Patrocinador</a>
+</div>
+
+<GenericList MyList="Sponsors">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Sponsors != null && Sponsors.Count > 0)
+                {
+                    @foreach (var sponsor in Sponsors)
+                    {
+                        <tr>
+                            <td>@sponsor.Name</td>
+                            <td>
+                                <a href="/sponsors/edit/@sponsor.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(sponsor))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No hay patrocinadores disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Sponsor> Sponsors { get; set; } = new List<Sponsor>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Sponsor>>("/api/sponsors");
+        if (!response.Error)
+        {
+            Sponsors = response.Response ?? new List<Sponsor>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los patrocinadores.";
+        }
+    }
+
+    private async Task Delete(Sponsor sponsor)
+    {
+        // Aquí se elimina el tipo genérico
+        var response = await repository.DeleteAsync($"api/sponsors/{sponsor.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el patrocinador.";
+        }
+    }
+}

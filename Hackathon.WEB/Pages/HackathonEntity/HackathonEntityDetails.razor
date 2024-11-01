@@ -1,0 +1,28 @@
+﻿@page "/hackathons/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles de Hackathon</h3>
+
+@if (hackathon != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @hackathon.Name</p>
+        <p><strong>Tema Principal:</strong> @hackathon.MainTheme</p>
+    </div>
+}
+else
+{
+    <p>Hackathon no encontrado.</p>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private HackathonEntity hackathon;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<HackathonEntity>($"/api/hackathons/{Id}");
+        hackathon = response.Response;
+    }
+}

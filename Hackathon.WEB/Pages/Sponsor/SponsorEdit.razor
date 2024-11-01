@@ -1,0 +1,52 @@
+﻿@page "/sponsors/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Patrocinador</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Sponsor != null)
+{
+    <SponsorForm @ref="sponsorForm" Sponsor="Sponsor" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Sponsor Sponsor { get; set; } = new();
+    private SponsorForm sponsorForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Sponsor>($"/api/sponsors/{Id}");
+        if (!response.Error)
+        {
+            Sponsor = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el patrocinador.";
+        }
+    }
+
+    private async Task Edit()
+    {
+        var response = await repository.PutAsync("/api/sponsors", Sponsor);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/sponsors");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el patrocinador.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/sponsors");
+    }
+}

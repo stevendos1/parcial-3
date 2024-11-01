@@ -1,0 +1,52 @@
+﻿@page "/roles/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Rol</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Role != null)
+{
+    <RoleForm @ref="roleForm" Role="Role" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Role Role { get; set; } = new();
+    private RoleForm roleForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Role>($"/api/roles/{Id}");
+        if (!response.Error)
+        {
+            Role = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el rol.";
+        }
+    }
+
+    private async Task Edit()
+    {
+        var response = await repository.PutAsync("/api/roles", Role);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/roles");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el rol.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/roles");
+    }
+}
