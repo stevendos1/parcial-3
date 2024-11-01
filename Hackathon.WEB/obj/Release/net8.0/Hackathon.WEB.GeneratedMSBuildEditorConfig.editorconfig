@@ -46,6 +46,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEdlbmVyaWNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/stevendos1/Desktop/hackaton-entrega-3/HackathonManagement/Hackathon.WEB/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
