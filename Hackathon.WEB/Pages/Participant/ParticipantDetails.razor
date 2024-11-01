@@ -1,0 +1,37 @@
+﻿@page "/participants/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Participante</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Participant != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @Participant.FullName</p>
+        <p><strong>Correo Electrónico:</strong> @Participant.Email</p>
+        <p><strong>ID del Equipo:</strong> @Participant.TeamId</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Participant Participant { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Participant>($"/api/participants/{Id}");
+        if (!response.Error)
+        {
+            Participant = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del participante.";
+        }
+    }
+}

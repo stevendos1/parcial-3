@@ -1,0 +1,102 @@
+﻿@page "/criteria"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Criterios</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/criteria/create">Nuevo Criterio</a>
+</div>
+
+<GenericList MyList="Criteria">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puntuación Máxima</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Criteria != null && Criteria.Count > 0)
+                {
+                    @foreach (var criterion in Criteria)
+                    {
+                        <tr>
+                            <td>@criterion.Name</td>
+                            <td>@criterion.MaxScore</td>
+                            <td>
+                                <a href="/criteria/edit/@criterion.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => ConfirmDelete(criterion))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No hay criterios disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Criterion> Criteria { get; set; } = new List<Criterion>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Criterion>>("/api/criteria");
+        if (!response.Error)
+        {
+            Criteria = response.Response ?? new List<Criterion>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los criterios.";
+        }
+    }
+
+    private async Task ConfirmDelete(Criterion criterion)
+    {
+        var confirmed = await ShowConfirmationDialog($"¿Estás seguro de que deseas eliminar el criterio '{criterion.Name}'?");
+        if (confirmed)
+        {
+            await Delete(criterion);
+        }
+    }
+
+    private async Task Delete(Criterion criterion)
+    {
+        var response = await repository.DeleteAsync($"api/criteria/{criterion.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el criterio.";
+        }
+    }
+
+    private async Task<bool> ShowConfirmationDialog(string message)
+    {
+        // Simulación de un diálogo de confirmación. Siempre devuelve "true" para simplificar.
+        return await Task.FromResult(true);
+    }
+}

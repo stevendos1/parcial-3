@@ -1,0 +1,36 @@
+﻿@page "/participants/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Participante</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<ParticipantForm @ref="participantForm" Participant="participant" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Participant participant = new();
+    private ParticipantForm participantForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/participants", participant);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/participants");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el participante.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/participants");
+    }
+}

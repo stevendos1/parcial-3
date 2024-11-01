@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Shared", "Hackathon.Shared\Hackathon.Shared.csproj", "{26E2FB94-94E9-4A14-8D56-AD75F50A701A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.Shared", "Hackathon.Shared\Hackathon.Shared.csproj", "{26E2FB94-94E9-4A14-8D56-AD75F50A701A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.API", "Hackathon.API\Hackathon.API.csproj", "{A7E2A7E1-C639-4445-95E9-543D88221F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.API", "Hackathon.API\Hackathon.API.csproj", "{A7E2A7E1-C639-4445-95E9-543D88221F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.WEB", "Hackathon.WEB\Hackathon.WEB.csproj", "{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.WEB", "Hackathon.WEB\Hackathon.WEB.csproj", "{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

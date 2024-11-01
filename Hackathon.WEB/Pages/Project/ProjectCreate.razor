@@ -1,0 +1,36 @@
+﻿@page "/projects/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Proyecto</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<ProjectForm @ref="projectForm" Project="project" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Project project = new();
+    private ProjectForm projectForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/projects", project);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/projects");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el proyecto.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/projects");
+    }
+}

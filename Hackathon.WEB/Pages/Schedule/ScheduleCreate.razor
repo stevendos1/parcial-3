@@ -1,0 +1,36 @@
+﻿@page "/schedules/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Evento</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<ScheduleForm @ref="scheduleForm" Schedule="schedule" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Schedule schedule = new();
+    private ScheduleForm scheduleForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/schedules", schedule);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/schedules");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el evento.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/schedules");
+    }
+}

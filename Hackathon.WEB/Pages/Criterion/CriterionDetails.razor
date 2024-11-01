@@ -1,0 +1,39 @@
+﻿@page "/criteria/{id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Criterio</h3>
+
+@if (criterion == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <div>
+        <h4>@criterion.Name</h4>
+        <p>Puntuación Máxima: @criterion.MaxScore</p>
+        <p>ID de Evaluación: @criterion.EvaluationId</p>
+    </div>
+}
+
+@code {
+    private Criterion criterion;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Criterion>($"/api/criteria/{Id}");
+        if (!response.Error)
+        {
+            criterion = response.Response;
+        }
+        else
+        {
+            Console.WriteLine("No se pudo cargar el criterio");
+            navigationManager.NavigateTo("/criteria");
+        }
+    }
+}

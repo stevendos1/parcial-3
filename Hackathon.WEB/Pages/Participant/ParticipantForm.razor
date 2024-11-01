@@ -1,0 +1,26 @@
+﻿<EditForm Model="Participant" OnSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label>Nombre Completo:</label>
+        <InputText class="form-control" @bind-Value="Participant.FullName" />
+    </div>
+
+    <div class="mb-3">
+        <label>Correo Electrónico:</label>
+        <InputText class="form-control" @bind-Value="Participant.Email" />
+    </div>
+
+    <div class="mb-3">
+        <label>ID del Equipo:</label>
+        <InputNumber class="form-control" @bind-Value="Participant.TeamId" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Participant Participant { get; set; } = new();
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public EventCallback ReturnAction { get; set; }
+}

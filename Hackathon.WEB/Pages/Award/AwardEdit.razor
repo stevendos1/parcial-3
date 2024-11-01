@@ -1,0 +1,68 @@
+@page "/awards/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Premio</h3>
+
+@if (award == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <AwardForm @ref="awardForm" Award="award" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@code {
+    private Award award;
+    private AwardForm awardForm; // Define awardForm here
+
+    public string ErrorMessage { get; set; } = string.Empty;
+    
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAward();
+    }
+
+    private async Task LoadAward()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.GetAsync<Award>($"/api/awards/{Id}");
+        if (!response.Error)
+        {
+            award = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el premio.";
+            navigationManager.NavigateTo("/awards");
+        }
+    }
+
+    private async Task Edit()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.PutAsync($"/api/awards/{Id}", award);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/awards");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el premio: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/awards");
+    }
+}

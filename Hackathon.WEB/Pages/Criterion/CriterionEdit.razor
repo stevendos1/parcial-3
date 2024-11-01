@@ -1,0 +1,67 @@
+﻿@page "/criteria/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Criterio</h3>
+
+@if (criterion == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <CriterionForm @ref="criterionForm" Criterion="criterion" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@code {
+    private Criterion criterion;
+    private CriterionForm criterionForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCriterion();
+    }
+
+    private async Task LoadCriterion()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.GetAsync<Criterion>($"/api/criteria/{Id}");
+        if (!response.Error)
+        {
+            criterion = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el criterio.";
+            navigationManager.NavigateTo("/criteria");
+        }
+    }
+
+    private async Task Edit()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.PutAsync($"/api/criteria/{Id}", criterion);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/criteria");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el criterio: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/criteria");
+    }
+}

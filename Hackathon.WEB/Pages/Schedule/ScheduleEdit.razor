@@ -1,0 +1,52 @@
+﻿@page "/schedules/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Evento</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Schedule != null)
+{
+    <ScheduleForm @ref="scheduleForm" Schedule="Schedule" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Schedule Schedule { get; set; } = new();
+    private ScheduleForm scheduleForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Schedule>($"/api/schedules/{Id}");
+        if (!response.Error)
+        {
+            Schedule = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el evento.";
+        }
+    }
+
+    private async Task Edit()
+    {
+        var response = await repository.PutAsync("/api/schedules", Schedule);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/schedules");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el evento.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/schedules");
+    }
+}

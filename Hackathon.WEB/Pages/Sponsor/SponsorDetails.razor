@@ -1,0 +1,36 @@
+﻿@page "/sponsors/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Patrocinador</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Sponsor != null)
+{
+    <div>
+        <p><strong>Nombre del Patrocinador:</strong> @Sponsor.Name</p>
+        <p><strong>Contribución:</strong> @Sponsor.Contribution</p>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public Sponsor Sponsor { get; set; }
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Sponsor>($"/api/sponsors/{Id}");
+        if (!response.Error)
+        {
+            Sponsor = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los detalles del patrocinador.";
+        }
+    }
+}

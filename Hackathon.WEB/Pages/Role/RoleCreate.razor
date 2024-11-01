@@ -1,0 +1,36 @@
+﻿@page "/roles/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Rol</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<RoleForm @ref="roleForm" Role="role" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Role role = new();
+    private RoleForm roleForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/roles", role);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/roles");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el rol.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/roles");
+    }
+}

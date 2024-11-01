@@ -1,0 +1,43 @@
+@page "/awards/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles del Premio</h3>
+
+@if (award == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <div>
+        <h4>@award.Title</h4>
+        <p>@award.Description</p>
+        <p><strong>ID del Hackathon:</strong> @award.HackathonId</p>
+        <button class="btn btn-secondary" @onclick="Return">Regresar</button>
+    </div>
+}
+
+@code {
+    private Award award;
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Award>($"/api/awards/{Id}");
+        if (!response.Error)
+        {
+            award = response.Response;
+        }
+        else
+        {
+            navigationManager.NavigateTo("/awards");
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/awards");
+    }
+}

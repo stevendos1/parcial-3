@@ -1,0 +1,36 @@
+﻿@page "/teams/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Equipo</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<TeamForm @ref="teamForm" Team="team" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Team team = new();
+    private TeamForm teamForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/teams", team);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/teams");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el equipo.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/teams");
+    }
+}

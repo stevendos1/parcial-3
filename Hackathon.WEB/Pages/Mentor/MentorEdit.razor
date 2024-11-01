@@ -1,0 +1,67 @@
+﻿@page "/mentors/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Mentor</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+@if (mentor == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <MentorForm @ref="mentorForm" Mentor="mentor" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    private Mentor mentor;
+    private MentorForm mentorForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadMentor();
+    }
+
+    private async Task LoadMentor()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.GetAsync<Mentor>($"/api/mentors/{Id}");
+        if (!response.Error)
+        {
+            mentor = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el mentor.";
+            navigationManager.NavigateTo("/mentors");
+        }
+    }
+
+    private async Task Edit()
+    {
+        ErrorMessage = string.Empty;
+        var response = await repository.PutAsync($"/api/mentors/{Id}", mentor);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/mentors");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el mentor: " + response.ErrorMessage;
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/mentors");
+    }
+}

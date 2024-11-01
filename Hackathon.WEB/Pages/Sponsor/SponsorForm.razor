@@ -1,0 +1,18 @@
+﻿<EditForm Model="Sponsor" OnSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label>Nombre del Patrocinador:</label>
+        <InputText class="form-control" @bind-Value="Sponsor.Name" />
+    </div>
+    <div class="mb-3">
+        <label>Contribución:</label>
+        <InputText class="form-control" @bind-Value="Sponsor.Contribution" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Sponsor Sponsor { get; set; } = new Sponsor();
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public EventCallback ReturnAction { get; set; }
+}

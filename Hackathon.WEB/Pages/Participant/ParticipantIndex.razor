@@ -1,0 +1,87 @@
+﻿@page "/participants"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Participantes</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/participants/create">Nuevo Participante</a>
+</div>
+
+<GenericList MyList="Participants">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre Completo</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Participants != null && Participants.Count > 0)
+                {
+                    @foreach (var participant in Participants)
+                    {
+                        <tr>
+                            <td>@participant.FullName</td> <!-- Cambiado para reflejar la propiedad correcta -->
+                            <td>@participant.Email</td> <!-- Agregada la columna de correo electrónico -->
+                            <td>
+                                <a href="/participants/edit/@participant.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(participant))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center">No hay participantes disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Participant> Participants { get; set; } = new List<Participant>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Participant>>("/api/participants");
+        if (!response.Error)
+        {
+            Participants = response.Response ?? new List<Participant>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los participantes.";
+        }
+    }
+
+    private async Task Delete(Participant participant)
+    {
+        var response = await repository.DeleteAsync($"api/participants/{participant.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el participante.";
+        }
+    }
+}

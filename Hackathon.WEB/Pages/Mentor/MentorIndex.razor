@@ -1,0 +1,85 @@
+﻿@page "/mentors"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Mentores</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/mentors/create">Nuevo Mentor</a>
+</div>
+
+<GenericList MyList="Mentors">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Mentors != null && Mentors.Count > 0)
+                {
+                    @foreach (var mentor in Mentors)
+                    {
+                        <tr>
+                            <td>@mentor.Name</td>
+                            <td>
+                                <a href="/mentors/edit/@mentor.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(mentor))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No hay mentores disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Mentor> Mentors { get; set; } = new List<Mentor>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Mentor>>("/api/mentors");
+        if (!response.Error)
+        {
+            Mentors = response.Response ?? new List<Mentor>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los mentores.";
+        }
+    }
+
+    private async Task Delete(Mentor mentor)
+    {
+        var response = await repository.DeleteAsync($"api/mentors/{mentor.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el mentor.";
+        }
+    }
+}

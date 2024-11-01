@@ -1,0 +1,31 @@
+﻿<EditForm Model="Project" OnSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label>Nombre del Proyecto:</label>
+        <InputText class="form-control" @bind-Value="Project.Name" />
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción:</label>
+        <InputTextArea class="form-control" @bind-Value="Project.Description" />
+    </div>
+
+    <div class="mb-3">
+        <label>Estado:</label>
+        <InputText class="form-control" @bind-Value="Project.Status" />
+    </div>
+
+    <div class="mb-3">
+        <label>ID del Equipo:</label>
+        <InputNumber class="form-control" @bind-Value="Project.TeamId" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</EditForm>
+
+@code {
+    [Parameter] public Project Project { get; set; } = new();
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public EventCallback ReturnAction { get; set; }
+}

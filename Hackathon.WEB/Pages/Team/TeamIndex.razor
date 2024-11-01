@@ -1,0 +1,85 @@
+﻿@page "/teams"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Equipos</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/teams/create">Nuevo Equipo</a>
+</div>
+
+<GenericList MyList="Teams">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Teams != null && Teams.Count > 0)
+                {
+                    @foreach (var team in Teams)
+                    {
+                        <tr>
+                            <td>@team.Name</td>
+                            <td>
+                                <a href="/teams/edit/@team.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(team))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No hay equipos disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Team> Teams { get; set; } = new List<Team>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Team>>("/api/teams");
+        if (!response.Error)
+        {
+            Teams = response.Response ?? new List<Team>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los equipos.";
+        }
+    }
+
+    private async Task Delete(Team team)
+    {
+        var response = await repository.DeleteAsync($"api/teams/{team.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el equipo.";
+        }
+    }
+}

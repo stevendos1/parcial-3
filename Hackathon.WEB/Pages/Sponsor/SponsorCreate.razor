@@ -1,0 +1,36 @@
+﻿@page "/sponsors/create"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Crear Patrocinador</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<SponsorForm @ref="sponsorForm" Sponsor="sponsor" OnSubmit="Create" ReturnAction="Return" />
+
+@code {
+    private Sponsor sponsor = new();
+    private SponsorForm sponsorForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    private async Task Create()
+    {
+        var response = await repository.Post("/api/sponsors", sponsor);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/sponsors");
+        }
+        else
+        {
+            ErrorMessage = "Error al crear el patrocinador.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/sponsors");
+    }
+}

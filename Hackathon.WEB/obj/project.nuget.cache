@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "oay3nDpZUdE=",
+  "dgSpecHash": "f3/tlP9+dX0=",
   "success": true,
   "projectFilePath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\stevendos1\\.nuget\\packages\\blazored.toast\\4.2.1\\blazored.toast.4.2.1.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.10\\microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.10\\microsoft.aspnetcore.components.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.10\\microsoft.aspnetcore.components.analyzers.8.0.10.nupkg.sha512",
+    "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\8.0.10\\microsoft.aspnetcore.components.authorization.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.10\\microsoft.aspnetcore.components.forms.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.10\\microsoft.aspnetcore.components.web.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.10\\microsoft.aspnetcore.components.webassembly.8.0.10.nupkg.sha512",
@@ -29,7 +31,7 @@
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.jsinterop\\8.0.10\\microsoft.jsinterop.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.10\\microsoft.jsinterop.webassembly.8.0.10.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.10\\microsoft.net.illink.tasks.8.0.10.nupkg.sha512",
-    "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.10\\microsoft.net.sdk.webassembly.pack.8.0.10.nupkg.sha512",
+    "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.0-rc.2.24473.5\\microsoft.net.sdk.webassembly.pack.9.0.0-rc.2.24473.5.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\stevendos1\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.10.nupkg.sha512"
   ],

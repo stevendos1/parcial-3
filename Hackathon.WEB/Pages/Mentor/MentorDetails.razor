@@ -1,0 +1,27 @@
+﻿@page "/mentors/details/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Detalles de Mentor</h3>
+
+@if (mentor != null)
+{
+    <div>
+        <p><strong>Nombre:</strong> @mentor.Name</p>
+    </div>
+}
+else
+{
+    <p>Mentor no encontrado.</p>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Mentor mentor;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Mentor>($"/api/mentors/{Id}");
+        mentor = response.Response;
+    }
+}

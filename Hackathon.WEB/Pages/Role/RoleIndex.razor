@@ -1,0 +1,85 @@
+﻿@page "/roles"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Roles</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/roles/create">Nuevo Rol</a>
+</div>
+
+<GenericList MyList="Roles">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Roles != null && Roles.Count > 0)
+                {
+                    @foreach (var role in Roles)
+                    {
+                        <tr>
+                            <td>@role.Name</td>
+                            <td>
+                                <a href="/roles/edit/@role.Id" class="btn btn-warning">Editar</a>
+                                <button class="btn btn-danger" @onclick="@(() => Delete(role))">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No hay roles disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    public List<Role> Roles { get; set; } = new List<Role>();
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        var response = await repository.GetAsync<List<Role>>("/api/roles");
+        if (!response.Error)
+        {
+            Roles = response.Response ?? new List<Role>();
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar los roles.";
+        }
+    }
+
+    private async Task Delete(Role role)
+    {
+        var response = await repository.DeleteAsync($"api/roles/{role.Id}");
+
+        if (!response.Error)
+        {
+            await Load(); // Recargar lista después de eliminar
+        }
+        else
+        {
+            ErrorMessage = "Error al eliminar el rol.";
+        }
+    }
+}

@@ -3,48 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\hackathon.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\hackathon.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\hackathon.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\hackathon.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.api\\data\\seeddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7E2A7E1-C639-4445-95E9-543D88221F40}|Hackathon.API\\Hackathon.API.csproj|solutionrelative:hackathon.api\\data\\seeddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.shared\\entities\\sponsor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|solutionrelative:hackathon.shared\\entities\\sponsor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.shared\\entities\\hackathonentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|solutionrelative:hackathon.shared\\entities\\hackathonentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\hackathon.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\hackathon.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.shared\\hackathon.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{26E2FB94-94E9-4A14-8D56-AD75F50A701A}|Hackathon.Shared\\Hackathon.Shared.csproj|solutionrelative:hackathon.shared\\hackathon.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Hackathon.Shared\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|c:\\users\\stevendos1\\desktop\\hackaton-entrega-3\\hackathonmanagement\\hackathon.web\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D1EB3C0-96A7-473E-A4EF-C9E1C295BBA5}|Hackathon.WEB\\Hackathon.WEB.csproj|solutionrelative:hackathon.web\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,149 +33,77 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Hackathon.WEB\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Hackathon.WEB\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T08:47:29.925Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Program.cs",
-              "RelativeDocumentMoniker": "Hackathon.API\\Program.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Program.cs",
-              "RelativeToolTip": "Hackathon.API\\Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACwAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:33:52.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\appsettings.json",
-              "RelativeDocumentMoniker": "Hackathon.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\appsettings.json",
-              "RelativeToolTip": "Hackathon.API\\appsettings.json",
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\App.razor",
+              "RelativeDocumentMoniker": "Hackathon.WEB\\App.razor",
+              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\App.razor",
+              "RelativeToolTip": "Hackathon.WEB\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-31T19:33:22.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HackathonEntity.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Entities\\HackathonEntity.cs",
-              "RelativeDocumentMoniker": "Hackathon.Shared\\Entities\\HackathonEntity.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Entities\\HackathonEntity.cs",
-              "RelativeToolTip": "Hackathon.Shared\\Entities\\HackathonEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:26:24.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Sponsor.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Entities\\Sponsor.cs",
-              "RelativeDocumentMoniker": "Hackathon.Shared\\Entities\\Sponsor.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Entities\\Sponsor.cs",
-              "RelativeToolTip": "Hackathon.Shared\\Entities\\Sponsor.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBMAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:15:39.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Hackathon.API.http",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Hackathon.API.http",
-              "RelativeDocumentMoniker": "Hackathon.API\\Hackathon.API.http",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Hackathon.API.http",
-              "RelativeToolTip": "Hackathon.API\\Hackathon.API.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-10-31T19:15:31.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SeedDb.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Data\\SeedDb.cs",
-              "RelativeDocumentMoniker": "Hackathon.API\\Data\\SeedDb.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Data\\SeedDb.cs",
-              "RelativeToolTip": "Hackathon.API\\Data\\SeedDb.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAnwHcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:23:40.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Data\\DataContext.cs",
-              "RelativeDocumentMoniker": "Hackathon.API\\Data\\DataContext.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Data\\DataContext.cs",
-              "RelativeToolTip": "Hackathon.API\\Data\\DataContext.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAnwLcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:23:29.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Hackathon.WEB.csproj",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
-              "RelativeDocumentMoniker": "Hackathon.WEB\\Hackathon.WEB.csproj",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Hackathon.WEB.csproj",
-              "RelativeToolTip": "Hackathon.WEB\\Hackathon.WEB.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-31T15:24:18.33Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T08:43:17.244Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Hackathon.API.csproj",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Hackathon.API.csproj",
-              "RelativeDocumentMoniker": "Hackathon.API\\Hackathon.API.csproj",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.API\\Hackathon.API.csproj",
-              "RelativeToolTip": "Hackathon.API\\Hackathon.API.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-31T15:23:09.865Z",
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Hackathon.WEB\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Hackathon.WEB\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T08:43:13.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Hackathon.Shared.csproj",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj",
-              "RelativeDocumentMoniker": "Hackathon.Shared\\Hackathon.Shared.csproj",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Hackathon.Shared.csproj",
-              "RelativeToolTip": "Hackathon.Shared\\Hackathon.Shared.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-31T15:22:44.922Z"
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Program.cs",
+              "RelativeDocumentMoniker": "Hackathon.WEB\\Program.cs",
+              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\Program.cs",
+              "RelativeToolTip": "Hackathon.WEB\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T08:41:58.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Class1.cs",
-              "RelativeDocumentMoniker": "Hackathon.Shared\\Class1.cs",
-              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.Shared\\Class1.cs",
-              "RelativeToolTip": "Hackathon.Shared\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:20:58.051Z"
+              "DocumentIndex": 3,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\_Imports.razor",
+              "RelativeDocumentMoniker": "Hackathon.WEB\\_Imports.razor",
+              "ToolTip": "C:\\Users\\stevendos1\\Desktop\\hackaton-entrega-3\\HackathonManagement\\Hackathon.WEB\\_Imports.razor",
+              "RelativeToolTip": "Hackathon.WEB\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T08:38:40.452Z",
+              "EditorCaption": ""
             }
           ]
         }

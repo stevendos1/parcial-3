@@ -1,0 +1,52 @@
+﻿@page "/projects/edit/{Id:int}"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+
+<h3>Editar Proyecto</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+else if (Project != null)
+{
+    <ProjectForm @ref="projectForm" Project="Project" OnSubmit="Edit" ReturnAction="Return" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Project Project { get; set; } = new();
+    private ProjectForm projectForm;
+    public string ErrorMessage { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await repository.GetAsync<Project>($"/api/projects/{Id}");
+        if (!response.Error)
+        {
+            Project = response.Response;
+        }
+        else
+        {
+            ErrorMessage = "Error al cargar el proyecto.";
+        }
+    }
+
+    private async Task Edit()
+    {
+        var response = await repository.PutAsync("/api/projects", Project);
+        if (!response.Error)
+        {
+            navigationManager.NavigateTo("/projects");
+        }
+        else
+        {
+            ErrorMessage = "Error al actualizar el proyecto.";
+        }
+    }
+
+    private void Return()
+    {
+        navigationManager.NavigateTo("/projects");
+    }
+}

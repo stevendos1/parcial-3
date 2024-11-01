@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hackathon.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf9c4977476252d0c2cccef247439af576a90c95")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e7b3a94bb67a6dcba62355ff29c522065541d77")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hackathon.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hackathon.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
